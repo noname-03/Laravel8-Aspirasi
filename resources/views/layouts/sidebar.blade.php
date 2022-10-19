@@ -81,6 +81,7 @@
                     {{-- <a class="collapse-item" href="{{ route('admin.attendances.index') }}">Data Absensi</a> --}}
                     <a class="collapse-item" href="{{ route('admin.category.index') }}">Data Kategori</a>
                     <a class="collapse-item" href="{{ route('admin.dprd.index') }}">Data Dprd</a>
+                    <a class="collapse-item" href="{{ route('admin.aspiration.index') }}">Data Aspirasi</a>
                     {{-- <a class="collapse-item" href="{{ route('admin.cabang.index') }}">Data Cabang</a>
                     <a class="collapse-item" href="{{ route('admin.user.index') }}">Data User</a>
                     <a class="collapse-item" href="{{ route('transaction.index') }}">Data Transaksi</a> --}}

@@ -4,9 +4,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DprdController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AspirationsController;
 use App\Http\Controllers\Admin\DataCabangController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DetailTransactionController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\User\ProductController as UserProductController;
@@ -62,6 +63,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->gro
     Route::resource('user', UserController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('dprd', DprdController::class);
+    Route::resource('aspiration', AspirationsController::class);
     // Route::get('/cabang', [DataCabangController::class, 'index'])->name('cabang.index');
     // Route::get('/cabang/{id}/show', [DataCabangController::class, 'show'])->name('cabang.show');
 
