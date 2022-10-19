@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DprdController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AspirationsController;
+use App\Http\Controllers\CommentAspiration;
 use App\Http\Controllers\Admin\DataCabangController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DetailTransactionController;
@@ -64,6 +65,14 @@ Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->gro
     Route::resource('category', CategoryController::class);
     Route::resource('dprd', DprdController::class);
     Route::resource('aspiration', AspirationsController::class);
+    // comment aspiration Resource
+    Route::get('/aspiration/{aspiration_id}/comment', [CommentAspiration::class, 'index'])->name('commentaspiration.index');
+    Route::get('/aspiration/{aspiration_id}/comment/create', [CommentAspiration::class, 'create'])->name('commentaspiration.create');
+    Route::post('/aspiration/{aspiration_id}/comment', [CommentAspiration::class, 'store'])->name('commentaspiration.store');
+    Route::get('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'show'])->name('commentaspiration.show');
+    Route::get('/aspiration/{aspiration_id}/comment/{comment_id}/edit', [CommentAspiration::class, 'edit'])->name('commentaspiration.edit');
+    Route::put('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'update'])->name('commentaspiration.update');
+    Route::delete('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'destroy'])->name('commentaspiration.destroy');
     // Route::get('/cabang', [DataCabangController::class, 'index'])->name('cabang.index');
     // Route::get('/cabang/{id}/show', [DataCabangController::class, 'show'])->name('cabang.show');
 

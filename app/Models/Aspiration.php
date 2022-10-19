@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Dprd;
+use App\Models\Comment_Aspirations;
 
 class Aspiration extends Model
 {
@@ -21,5 +22,10 @@ class Aspiration extends Model
     public function dprd()
     {
         return $this->belongsTo(Dprd::class);
+    }
+
+    public function comment_aspirations()
+    {
+        return $this->hasMany(Comment_Aspirations::class);
     }
 }
