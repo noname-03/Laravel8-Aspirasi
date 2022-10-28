@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Aspiration;
 
-class Comment_Aspirations extends Model
+class CommentAspirations extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
-
+    protected $table = 'commentaspirations';
 
     public function aspiration()
     {

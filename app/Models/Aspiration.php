@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Dprd;
-use App\Models\Comment_Aspirations;
+use App\Models\CommentAspirations;
 
 class Aspiration extends Model
 {
@@ -24,8 +24,8 @@ class Aspiration extends Model
         return $this->belongsTo(Dprd::class);
     }
 
-    public function comment_aspirations()
+    public function CommentAspirations()
     {
-        return $this->hasMany(Comment_Aspirations::class);
+        return $this->hasMany(CommentAspirations::class);
     }
 }

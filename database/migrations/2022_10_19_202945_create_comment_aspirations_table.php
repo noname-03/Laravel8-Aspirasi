@@ -13,7 +13,7 @@ class CreateCommentAspirationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comment_aspirations', function (Blueprint $table) {
+        Schema::create('CommentAspirations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('aspiration_id');
             $table->foreign('aspiration_id')->references('id')->on('aspirations')->onDelete('cascade');
@@ -32,6 +32,6 @@ class CreateCommentAspirationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comment_aspirations');
+        Schema::dropIfExists('CommentAspirations');
     }
 }

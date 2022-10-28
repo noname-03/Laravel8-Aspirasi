@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserTableSeeder::class,
             CategoryTableSeeder::class,
+            DprdSeeder::class,
+            AspirationTableSeeder::class,
+            CommentAspirationTableSeeder::class,
         ]);
     }
 }

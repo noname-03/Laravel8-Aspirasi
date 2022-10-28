@@ -15,11 +15,19 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Makanan',
+            'name' => 'Pengaspalan jalan baru',
         ]);
 
         Category::create([
-            'name' => 'Minuman',
+            'name' => 'Perbaikan jembatan',
+        ]);
+
+        Category::create([
+            'name' => 'Rehabilitasi saluran',
+        ]);
+
+        Category::create([
+            'name' => 'Perbaikan taman lingkungan',
         ]);
     }
 }

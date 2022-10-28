@@ -38,7 +38,7 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($comment_aspirations as $item)
+                            @foreach ($CommentAspirations as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
