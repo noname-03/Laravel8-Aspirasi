@@ -18,7 +18,7 @@
                         <div class="form-group col-md-6">
                             <label>Dprd <span class="required">*</span></label>
                             <select name="dprd_id" class="form-control" id="exampleFormControlSelect1" required>
-                                <option selected>Choose...</option>
+                                <option>Choose...</option>
                                 @foreach ($dprds as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
@@ -27,7 +27,7 @@
                         <div class="form-group col-md-6">
                             <label>Kategori <span class="required">*</span></label>
                             <select name="category_id" class="form-control" id="exampleFormControlSelect1" required>
-                                <option selected>Choose...</option>
+                                <option>Choose...</option>
                                 @foreach ($categories as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
@@ -44,13 +44,18 @@
                                 placeholder="Masukan Email" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="description">Uraian <span class="required">*</span></label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Masukan Uraian" required></textarea>
+                            <label for="title">Judul <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title"
+                                placeholder="Masukan Judul" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="no_Hp">Jalan <span class="required">*</span></label>
                             <input type="text" class="form-control" id="street" name="street"
                                 placeholder="Masukan Jalan" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="description">Uraian <span class="required">*</span></label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Masukan Uraian" required></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="no_Hp">RT <span class="required">*</span></label>
@@ -88,10 +93,14 @@
                                 placeholder="Thumbnail" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Status <span class="required">*</span>
-                            </label>
-                            <input type="text" name="status" id="status" required="required"
-                                class="form-control ">
+                            <label>Status <span class="required">*</span></label>
+                            <select name="status" class="form-control" id="exampleFormControlSelect1" required>
+                                <option>Choose...</option>
+                                <option value="1">Terverifikasi</option>
+                                <option value="2">Proses Poker</option>
+                                <option value="3">Terealisasi</option>
+                                <option value="4">Tidak Terealisasi</option>
+                            </select>
                         </div>
                     </div>
                     <div class="item form-group">

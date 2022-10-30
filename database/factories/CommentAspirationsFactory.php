@@ -15,6 +15,7 @@ class CommentAspirationsFactory extends Factory
     {
         return [
             'aspiration_id' => $this->faker->numberBetween(1, 10),
+            // 'aspiration_id' => '1',
             'name' => $this->faker->name,
             'title' => $this->faker->sentence,
             'description' => $this->faker->text,

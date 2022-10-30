@@ -21,6 +21,7 @@ class CreateAspirationsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('name');
             $table->string('email');
+            $table->string('title');
             $table->text('description');
             $table->string('street');
             $table->string('rt');

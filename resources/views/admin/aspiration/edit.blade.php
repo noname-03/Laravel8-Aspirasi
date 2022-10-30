@@ -14,14 +14,6 @@
                 <form action="{{ route('admin.aspiration.update', $aspirations->id) }}" method="POST" id="demo-form2"
                     enctype="multipart/form-data" user-parsley-validate class="form-horizontal form-label-left">
                     @csrf @method('PATCH')
-                    {{-- <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Name <span
-                                class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <input type="text" name="name" id="first-name" required="required" value={{$dprd->name}} class="form-control ">
-                        </div>
-                    </div> --}}
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Dprd <span class="required">*</span></label>
@@ -57,13 +49,18 @@
                                 placeholder="Masukan Email" value="{{ $aspirations->email }}" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="description">Uraian <span class="required">*</span></label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Masukan Uraian" required>{{ $aspirations->description }}</textarea>
+                            <label for="title">Judul <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title"
+                                placeholder="Masukan Judul" value="{{ $aspirations->title }}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="no_Hp">Jalan <span class="required">*</span></label>
                             <input type="text" class="form-control" id="street" name="street"
                                 placeholder="Masukan Jalan" value="{{ $aspirations->street }}" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="description">Uraian <span class="required">*</span></label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Masukan Uraian" required>{{ $aspirations->description }}</textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="no_Hp">RT <span class="required">*</span></label>
@@ -101,10 +98,17 @@
                                 placeholder="Thumbnail">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Status <span class="required">*</span>
-                            </label>
-                            <input type="text" name="status" id="status" required="required"
-                                class="form-control" value="{{ $aspirations->status }}">
+                            <label>Status <span class="required">*</span></label>
+                            <select name="status" class="form-control" id="exampleFormControlSelect1" required>
+                                <option value="1" {{ $aspirations->status == 1 ? 'selected' : '' }}>Terverifikasi
+                                </option>
+                                <option value="2" {{ $aspirations->status == 2 ? 'selected' : '' }}>Proses Poker
+                                </option>
+                                <option value="3" {{ $aspirations->status == 3 ? 'selected' : '' }}>Terealisasi
+                                </option>
+                                <option value="4" {{ $aspirations->status == 4 ? 'selected' : '' }}>Tidak Terealisasi
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="item form-group">

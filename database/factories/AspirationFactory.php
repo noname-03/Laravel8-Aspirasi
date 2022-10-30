@@ -18,6 +18,7 @@ class AspirationFactory extends Factory
             'category_id' => mt_rand(1, 4),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
+            'title' => $this->faker->sentence,
             'description' => $this->faker->text,
             'street' => $this->faker->streetName,
             'rt' => $this->faker->randomNumber(2),
@@ -27,8 +28,8 @@ class AspirationFactory extends Factory
             'volume' => mt_rand(1, 1000),
             'unit' => $this->faker->randomElement(['meter', ' pak', 'kg']),
             'attachment' => $this->faker->imageUrl(640, 480, 'cats', true, 'Faker'),
-            'status' => $this->faker->randomElement(['Terverifikasi', 'Proses Poker', 'Terealisasi
-            ', 'Tidak Terealisasi']),
+            'status' => $this->faker->randomElement(['1', '2', '3', '4']),
+            // 'Terverifikasi', 'Proses Poker', 'Terealisasi', 'Tidak Terealisasi'
         ];
     }
 }

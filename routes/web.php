@@ -10,6 +10,7 @@ use App\Http\Controllers\CommentAspiration;
 use App\Http\Controllers\Admin\DataCabangController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DetailTransactionController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\ReportController;
@@ -27,7 +28,7 @@ use App\Http\Controllers\ReportController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('guest.home');
 });
 
 Auth::routes();
@@ -54,6 +55,12 @@ Route::get('/home1', [App\Http\Controllers\HomeController::class, 'home'])->name
 // Route::get('/laporan/cabang/{cabang_id}/product', [ReportController::class, 'product'])->name('report.product');
 // Route::get('/laporan/product', [ReportController::class, 'productAdmin'])->name('report.productAdmin');
 // Route::get('/laporan/transakasi', [ReportController::class, 'transaction'])->name('report.transaction');
+Route::prefix('/sarapan')->name('guest.')->group(function () {
+    Route::get('/', [GuestController::class, 'index'])->name('home');
+    Route::get('/aspirasi', [GuestController::class, 'aspirasi'])->name('aspirasi');
+    Route::get('/aspirasi/{id}', [GuestController::class, 'showAspirasi'])->name('showAspirasi');
+    Route::post('/aspirasi/{id}/comment', [GuestController::class, 'storeCommentAspiration'])->name('storeCommentAspiration');
+});
 
 Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->group(function () {
     // Route::get('/admin', [OperatorController::class, 'index'])->name('operator');
