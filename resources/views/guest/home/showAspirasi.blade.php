@@ -17,7 +17,7 @@
                             {{ $aspiration->description }}</p>
                         <table border="0" width="600" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td>Dprd :</td>
+                                <td width="200">Dprd :</td>
                                 <td>{{ $aspiration->dprd->name }}</td>
                             </tr>
                             <tr>
@@ -67,15 +67,26 @@
                             <tr>
                                 <td>Lampiran :</td>
                                 <td>
-                                    {{-- C:\project\laravel\aspirasi\storage\app\public\lampiran\aspirasi\1667122152.pdf --}}
                                     <a href="{{ asset('storage/lampiran/aspirasi/' . $aspiration->attachment) }}"
-                                        target="_blank" rel="noopener noreferrer">a</a>
-                                    {{ $aspiration->attachment }}
+                                        target="_blank" rel="noopener noreferrer">{{ $aspiration->attachment }}</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Status :</td>
-                                <td>{{ $aspiration->status }}</td>
+                                <td>
+                                    @if ($aspiration->status == 1)
+                                        <span style="color: orange">Terverifikasi</span>
+                                    @elseif ($aspiration->status == 2)
+                                        <span style="color: red">Proses Poker</span>
+                                        {{-- style="color: green" --}}
+                                    @elseif ($aspiration->status == 3)
+                                        <span style="color: blue">Terealisasi</span>
+                                        {{-- style="color: brown" --}}
+                                    @else
+                                        <span style="color: green">Tidak Terealisasi</span>
+                                        {{-- style="color: red" --}}
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                         {{--

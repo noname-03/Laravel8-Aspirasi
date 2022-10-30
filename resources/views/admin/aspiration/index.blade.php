@@ -24,7 +24,6 @@
                                 <th>Dprd</th>
                                 <th>Kategori</th>
                                 <th>Nama</th>
-                                <th>Foto</th>
                                 <th>Uraian</th>
                                 <th>Nama</th>
                                 <th>Aksi</th>
@@ -36,7 +35,6 @@
                                 <th>Dprd</th>
                                 <th>Kategori</th>
                                 <th>Nama</th>
-                                <th>Foto</th>
                                 <th>Uraian</th>
                                 <th>Nama</th>
                                 <th>Aksi</th>
@@ -49,9 +47,6 @@
                                     <td>{{ $item->dprd->name }}</td>
                                     <td>{{ $item->category->name }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td><img
-                                            src="{{ asset('storage/lampiran/aspirasi/' . $item->attachment) }}"alt="course">
-                                    </td>
                                     <td>{{ $item->description }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>

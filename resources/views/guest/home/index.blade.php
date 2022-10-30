@@ -138,7 +138,9 @@
                                     <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
                                             class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                                     </div>
-                                    <h2 class="mb-2"><a href="single-post.html">{{ $item->description }}</a></h2>
+                                    <h2 class="mb-2"><a
+                                            href="{{ route('guest.showAspirasi', $item->id) }}">{{ $item->title }}</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="date">{{ $item->name }}</span>
                                         <span class="mx-1">&bullet;</span>
@@ -195,7 +197,8 @@
                                 <h3 class="aside-title">Categories</h3>
                                 <ul class="aside-links list-unstyled">
                                     @foreach ($categories as $item)
-                                        <li><a href="#"><i class="bi bi-chevron-right"></i>
+                                        <li><a href="{{ route('guest.aspirasiCategory', $item->id) }}"><i
+                                                    class="bi bi-chevron-right"></i>
                                                 {{ $item->name }}</a>
                                         </li>
                                     @endforeach

@@ -38,4 +38,23 @@ class GuestController extends Controller
         $aspiration->CommentAspirations()->create($request->all());
         return redirect()->route('guest.showAspirasi', $id);
     }
+
+    public function aspirasiCategory($id)
+    {
+        $dprds = Dprd::all();
+        $category = Category::findOrFail($id);
+        $categories = Category::all();
+        $aspirations = $category->Aspirations()->latest('created_at')->paginate(5);
+        return view('guest.home.aspirasiCategory', ['aspirations' => $aspirations, 'category' => $category, 'dprds' => $dprds, 'categories' => $categories]);
+        // dd($aspirations);
+        // foreach ($aspirations as $key) {
+        //     echo $key->title;
+        //     echo '</br>';
+        // }
+        // $category->load('aspirations');
+        // // dd($category);
+        // foreach ($category as $item) {
+        //     echo $item->title;
+
+    }
 }

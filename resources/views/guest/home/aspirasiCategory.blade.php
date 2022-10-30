@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="category-title">Aspirasi</h3>
+                    <h3 class="category-title">Kategori : {{ $category->name }}</h3>
 
                     @foreach ($aspirations as $item)
                         <div class="d-md-flex post-entry-2 small-img border-bottom">
@@ -420,30 +420,14 @@
                     <div class="aside-block">
                         <h3 class="aside-title">Categories</h3>
                         <ul class="aside-links list-unstyled">
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Culture</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Sport</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Food</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Politics</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Celebrity</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
+                            @foreach ($categories as $item)
+                                <li><a href="{{ route('guest.aspirasiCategory', $item->id) }}"><i
+                                            class="bi bi-chevron-right"></i> {{ $item->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div><!-- End Categories -->
 
-                    <div class="aside-block">
-                        <h3 class="aside-title">Tags</h3>
-                        <ul class="aside-tags list-unstyled">
-                            <li><a href="category.html">Business</a></li>
-                            <li><a href="category.html">Culture</a></li>
-                            <li><a href="category.html">Sport</a></li>
-                            <li><a href="category.html">Food</a></li>
-                            <li><a href="category.html">Politics</a></li>
-                            <li><a href="category.html">Celebrity</a></li>
-                            <li><a href="category.html">Startups</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                        </ul>
-                    </div><!-- End Tags -->
 
                 </div>
 

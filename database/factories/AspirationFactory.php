@@ -18,7 +18,7 @@ class AspirationFactory extends Factory
             'category_id' => mt_rand(1, 4),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'title' => $this->faker->sentence,
+            'title' => $this->faker->randomElement(['Kebakaran', 'Perbaikan Jalan', 'Banjir', 'Lobang', 'BPJS']),
             'description' => $this->faker->text,
             'street' => $this->faker->streetName,
             'rt' => $this->faker->randomNumber(2),
