@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CommentAspirationsFactory extends Factory
+class SuggestionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,10 +14,9 @@ class CommentAspirationsFactory extends Factory
     public function definition()
     {
         return [
-            'aspiration_id' => $this->faker->numberBetween(1, 10),
             'name' => $this->faker->name,
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->text,
+            'no_hp' => $this->faker->phoneNumber,
+            'suggestion' => $this->faker->text,
             'status' => $this->faker->randomElement(['0', '1']),
         ];
     }

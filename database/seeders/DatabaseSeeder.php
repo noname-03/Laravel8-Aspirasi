@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             DprdSeeder::class,
             AspirationTableSeeder::class,
             CommentAspirationTableSeeder::class,
+            SuggestionTableSeeder::class,
+            CommentSuggestionSeeder::class,
         ]);
     }
 }

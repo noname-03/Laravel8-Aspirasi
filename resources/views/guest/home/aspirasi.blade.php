@@ -129,7 +129,7 @@
                     <div class="aside-block">
 
                         <h2>Masukan Aspirasi Kamu Disini!</h2>
-                        <form action="{{ route('admin.aspiration.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('guest.aspirasi.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Dprd <span class="required">*</span></label>
@@ -209,7 +209,7 @@
                                 <input type="file" class="form-control" id="thumbnail" name="file"
                                     placeholder="Thumbnail" required>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Status <span class="required">*</span></label>
                                 <select name="status" class="form-control" id="exampleFormControlSelect1" required>
                                     <option>Choose...</option>
@@ -218,7 +218,7 @@
                                     <option value="3">Terealisasi</option>
                                     <option value="4">Tidak Terealisasi</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="mt-4">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>

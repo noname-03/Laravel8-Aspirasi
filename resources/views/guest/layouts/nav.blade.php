@@ -11,7 +11,7 @@
             <ul>
                 <li><a href="{{ route('guest.home') }}">Beranda</a></li>
                 <li><a href="{{ route('guest.aspirasi') }}">Aspirasi</a></li>
-                <li><a href="single-post.html">Saran</a></li>
+                <li><a href="{{ route('guest.saran')}}">Saran</a></li>
                 {{--
                 <li class="dropdown"><a href="category.html"><span>Categories</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>

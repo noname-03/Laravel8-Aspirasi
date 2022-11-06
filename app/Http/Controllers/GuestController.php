@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Aspiration;
 use App\Models\Category;
 use App\Models\Dprd;
+use App\Models\Suggestion;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -46,15 +47,43 @@ class GuestController extends Controller
         $categories = Category::all();
         $aspirations = $category->Aspirations()->latest('created_at')->paginate(5);
         return view('guest.home.aspirasiCategory', ['aspirations' => $aspirations, 'category' => $category, 'dprds' => $dprds, 'categories' => $categories]);
-        // dd($aspirations);
-        // foreach ($aspirations as $key) {
-        //     echo $key->title;
-        //     echo '</br>';
-        // }
-        // $category->load('aspirations');
-        // // dd($category);
-        // foreach ($category as $item) {
-        //     echo $item->title;
+    }
 
+    public function saran()
+    {
+        $suggestions = Suggestion::latest('created_at')->paginate(5);
+        // dd($suggestions);
+        return view('guest.home.suggestion', compact('suggestions'));
+    }
+
+    public function showSaran($id)
+    {
+        $suggestions = Suggestion::findOrFail($id);
+        return view('guest.home.showSuggestion', compact('suggestions'));
+    }
+
+    public function storeCommentSaran(Request $request, $id)
+    {
+        $request['status'] = 0;
+        $suggestion = Suggestion::findOrFail($id);
+        $suggestion->commentSuggestions()->create($request->all());
+        return redirect()->route('guest.showSaran', $id);
+    }
+
+    public function storeSaran(Request $request)
+    {
+        $request['status'] = 0;
+        Suggestion::create($request->all());
+        return redirect()->route('guest.saran');
+    }
+
+    public function storeAspirasi(Request $request)
+    {
+        $request['status'] = 0;
+        $imageName = time() . '.' . $request->file->extension();
+        $request->file->storeAs('public/lampiran/aspirasi/', $imageName);
+        $request['attachment'] = $imageName;
+        Aspiration::create($request->except('file'));
+        return redirect()->route('guest.aspirasi');
     }
 }

@@ -33,8 +33,13 @@ Route::prefix('/sarapan')->name('guest.')->group(function () {
     Route::get('/', [GuestController::class, 'index'])->name('home');
     Route::get('/aspirasi', [GuestController::class, 'aspirasi'])->name('aspirasi');
     Route::get('/aspirasi/{id}', [GuestController::class, 'showAspirasi'])->name('showAspirasi');
+    Route::post('/aspirasi', [GuestController::class, 'storeAspirasi'])->name('aspirasi.store');
     Route::post('/aspirasi/{id}/comment', [GuestController::class, 'storeCommentAspiration'])->name('storeCommentAspiration');
     Route::get('/category/{id}/aspirasi', [GuestController::class, 'aspirasiCategory'])->name('aspirasiCategory');
+    Route::get('/saran', [GuestController::class, 'saran'])->name('saran');
+    Route::get('/saran/{id}', [GuestController::class, 'showSaran'])->name('showSaran');
+    Route::post('/saran', [GuestController::class, 'storeSaran'])->name('saran.store');
+    Route::post('/saran/{id}/comment', [GuestController::class, 'storeCommentSaran'])->name('storeCommentSaran');
 });
 
 Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->group(function () {
