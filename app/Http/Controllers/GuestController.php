@@ -7,14 +7,16 @@ use App\Models\Category;
 use App\Models\Dprd;
 use App\Models\Suggestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class GuestController extends Controller
 {
     public function index()
     {
         $aspirations = Aspiration::latest('created_at')->limit(5)->get();
+        $suggestions = Suggestion::latest('created_at')->limit(5)->get();
         $categories = Category::all();
-        return view('guest.home.index', compact('aspirations', 'categories'));
+        return view('guest.home.index', compact('aspirations', 'categories', 'suggestions'));
     }
 
     public function aspirasi()
@@ -85,5 +87,15 @@ class GuestController extends Controller
         $request['attachment'] = $imageName;
         Aspiration::create($request->except('file'));
         return redirect()->route('guest.aspirasi');
+    }
+
+    public function tentang()
+    {
+        return view('guest.home.about');
+    }
+
+    public function kontak()
+    {
+        return view('guest.home.contact');
     }
 }

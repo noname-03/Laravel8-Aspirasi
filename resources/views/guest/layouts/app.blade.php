@@ -66,18 +66,20 @@
                         <p><a href="about.html" class="footer-link-more">Learn More</a></p>
                     </div>
                     <div class="col-6 col-lg-2">
-                        <h3 class="footer-heading">Navigation</h3>
+                        <h3 class="footer-heading">Navigasi</h3>
                         <ul class="footer-links list-unstyled">
-                            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
-                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-                            <li><a href="single-post.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-                            <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
-                            <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+                            <li><a href="{{ route('guest.aspirasi') }}"><i class="bi bi-chevron-right"></i>
+                                    Aspirasi</a></li>
+                            <li><a href="{{ route('guest.saran') }}"><i class="bi bi-chevron-right"></i> Saran</a></li>
+                            <li><a href="{{ route('guest.contact') }}"><i class="bi bi-chevron-right"></i> Hubungi
+                                    Kami</a></li>
+                            <li><a href="{{ route('guest.about') }}"><i class="bi bi-chevron-right"></i> Tentang</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2">
-                        <h3 class="footer-heading">Categories</h3>
+                        <h3 class="footer-heading">Kategori</h3>
                         <ul class="footer-links list-unstyled">
                             @foreach ($kategori as $item)
                                 <li><a href="#"><i class="bi bi-chevron-right"></i> {{ $item->name }}</a></li>

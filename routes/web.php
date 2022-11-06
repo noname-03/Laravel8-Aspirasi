@@ -40,6 +40,8 @@ Route::prefix('/sarapan')->name('guest.')->group(function () {
     Route::get('/saran/{id}', [GuestController::class, 'showSaran'])->name('showSaran');
     Route::post('/saran', [GuestController::class, 'storeSaran'])->name('saran.store');
     Route::post('/saran/{id}/comment', [GuestController::class, 'storeCommentSaran'])->name('storeCommentSaran');
+    Route::get('/tentang', [GuestController::class, 'tentang'])->name('about');
+    Route::get('/kontak', [GuestController::class, 'kontak'])->name('contact');
 });
 
 Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->group(function () {
