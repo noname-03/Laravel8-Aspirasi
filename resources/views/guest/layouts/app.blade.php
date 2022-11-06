@@ -63,12 +63,13 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem
                             deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae
                             officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
-                        <p><a href="about.html" class="footer-link-more">Learn More</a></p>
+                        <p><a href="{{ route('guest.about') }}" class="footer-link-more">Learn More</a></p>
                     </div>
                     <div class="col-6 col-lg-2">
                         <h3 class="footer-heading">Navigasi</h3>
                         <ul class="footer-links list-unstyled">
-                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Beranda</a>
+                            </li>
                             <li><a href="{{ route('guest.aspirasi') }}"><i class="bi bi-chevron-right"></i>
                                     Aspirasi</a></li>
                             <li><a href="{{ route('guest.saran') }}"><i class="bi bi-chevron-right"></i> Saran</a></li>
