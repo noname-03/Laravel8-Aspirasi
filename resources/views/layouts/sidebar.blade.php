@@ -2,7 +2,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-text mx-3"> <img src={{ asset('img/logo_haus.png') }} width="100" /></div>
+        <h2>ASPIRASI</h2>
+        {{-- <div class="sidebar-brand-text mx-3"> <img src={{ asset('img/logo_haus.png') }} width="100" /></div> --}}
     </a>
 
     <!-- Divider -->
