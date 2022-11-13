@@ -15,7 +15,7 @@ class AspirationFactory extends Factory
     {
         return [
             'dprd_id' => mt_rand(1, 3),
-            'category_id' => mt_rand(1, 4),
+            'title_sub_category_id' => mt_rand(1, 56),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'title' => $this->faker->randomElement(['Kebakaran', 'Perbaikan Jalan', 'Banjir', 'Lobang', 'BPJS']),

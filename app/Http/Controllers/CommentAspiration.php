@@ -26,8 +26,7 @@ class CommentAspiration extends Controller
     public function create($aspiratioinId)
     {
         $aspiration = Aspiration::findOrFail($aspiratioinId);
-        // $category = Category::all();
-        return view('admin.product.create', [
+        return view('admin.commentAspirasi.create', [
             'aspiration' => $aspiration
         ]);
     }
@@ -42,7 +41,7 @@ class CommentAspiration extends Controller
     {
         $aspiration = Aspiration::findOrFail($aspiratioinId);
         $aspiration->CommentAspirations()->create($request->all());
-        return redirect()->route('admin.product.index', $aspiratioinId);
+        return redirect()->route('admin.commentaspiration.index', $aspiratioinId);
     }
 
     /**
@@ -72,8 +71,7 @@ class CommentAspiration extends Controller
     {
         $aspiration = Aspiration::findOrFail($aspiratioinId);
         $CommentAspirations = $aspiration->CommentAspirations()->find($commentId);
-        // dd($product);
-        return view('admin.product.edit')->with([
+        return view('admin.commentAspirasi.edit')->with([
             'aspiration' => $aspiration,
             'CommentAspirations' => $CommentAspirations
         ]);
@@ -91,8 +89,7 @@ class CommentAspiration extends Controller
         $aspiration = Aspiration::findOrFail($aspiratioinId);
         $CommentAspirations = $aspiration->CommentAspirations()->find($commentId);
         $CommentAspirations->update($request->all());
-        // $product->update($request->except(['_method', '_token']));
-        return redirect()->route('admin.product.index', $aspiratioinId);
+        return redirect()->route('admin.commentaspiration.index', $aspiratioinId);
     }
 
     /**
@@ -106,6 +103,6 @@ class CommentAspiration extends Controller
         $aspiration = Aspiration::findOrFail($aspiratioinId);
         $CommentAspirations = $aspiration->CommentAspirations()->find($commentId);
         $CommentAspirations->delete();
-        return redirect()->route('admin.product.index', $aspiratioinId);
+        return redirect()->route('admin.commentaspiration.index', $aspiratioinId);
     }
 }

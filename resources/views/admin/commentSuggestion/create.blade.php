@@ -7,12 +7,12 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Komem Aspirasi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Komem Saran</h6>
                 <p></p>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.commentaspiration.store', $aspiration->id) }}" method="POST" id="demo-form2"
-                    data-parsley-validate class="form-horizontal form-label-left">
+                <form action="{{ route('admin.commentsuggestion.store', $suggestion->id) }}" enctype="multipart/form-data"
+                    method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">

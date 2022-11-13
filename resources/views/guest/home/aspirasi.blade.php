@@ -13,7 +13,7 @@
                                 <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
                             </a> --}}
                             <div>
-                                <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                <div class="post-meta"><span class="date">{{ $item->TitleSubCategory->name }}</span> <span
                                         class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span></div>
                                 <h3><a href="{{ route('guest.showAspirasi', $item->id) }}">{{ $item->title }}</a></h3>
                                 <p>{{ $item->description }}</p>
@@ -132,7 +132,7 @@
                         <form action="{{ route('guest.aspirasi.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label>Dprd <span class="required">*</span></label>
+                                <label>Dapil <span class="required">*</span></label>
                                 <select name="dprd_id" class="form-control" id="exampleFormControlSelect1" required>
                                     <option>Choose...</option>
                                     @foreach ($dprds as $item)
@@ -142,10 +142,19 @@
                             </div>
                             <div class="form-group">
                                 <label>Kategori <span class="required">*</span></label>
-                                <select name="category_id" class="form-control" id="exampleFormControlSelect1" required>
+                                <select name="title_sub_category_id" class="form-control" id="exampleFormControlSelect1"
+                                    data-show-subtext="true" data-live-search="true" required>
                                     <option>Choose...</option>
                                     @foreach ($categories as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" disabled>{{ $item->name }}</option>
+                                        @foreach ($item->subCategories as $item)
+                                            <option value="{{ $item->id }}" disabled>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $item->name }}</option>
+                                            @foreach ($item->titleSubCategories as $item)
+                                                <option value="{{ $item->id }}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $item->name }}</option>
+                                            @endforeach
+                                        @endforeach
                                     @endforeach
                                 </select>
                             </div>

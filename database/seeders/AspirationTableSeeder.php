@@ -14,6 +14,6 @@ class AspirationTableSeeder extends Seeder
      */
     public function run()
     {
-        Aspiration::factory(20)->create();
+        Aspiration::factory(57)->create();
     }
 }

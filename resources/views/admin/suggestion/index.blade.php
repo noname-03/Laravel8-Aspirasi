@@ -11,9 +11,9 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Aspirasi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Saran</h6>
                 <p></p>
-                <a href="{{ route('admin.aspiration.create') }}" class="btn btn-success">Tambah Data</a>
+                <a href="{{ route('admin.suggestion.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -21,42 +21,39 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Dprd</th>
-                                <th>Kategori</th>
                                 <th>Nama</th>
-                                <th>Uraian</th>
-                                <th>Nama</th>
+                                <th>NO HP</th>
+                                <th>Saran</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Dprd</th>
-                                <th>Kategori</th>
                                 <th>Nama</th>
-                                <th>Uraian</th>
-                                <th>Nama</th>
+                                <th>NO HP</th>
+                                <th>Saran</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($aspirations as $item)
+                            @foreach ($suggestions as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->dprd->name }}</td>
-                                    <td>{{ $item->TitleSubCategory->name }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->description }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->no_hp }}</td>
+                                    <td>{{ $item->suggestion }}</td>
+                                    <td>{{ $item->status == 0 ? 'Tidak Terverivikasi' : 'Terverivikasi' }}</td>
                                     <td>
-                                        <form action="{{ route('admin.aspiration.destroy', $item->id) }}" method="post">
+                                        <form action="{{ route('admin.suggestion.destroy', $item->id) }}" method="post">
                                             @csrf @method('DELETE')
                                             <a class="btn btn-sm btn-primary"
-                                                href="{{ route('admin.aspiration.edit', $item->id) }}" role="button"><i
+                                                href="{{ route('admin.suggestion.edit', $item->id) }}" role="button"><i
                                                     class="fa fa-edit"></i></a>
                                             <a class="btn btn-sm btn-success"
-                                                href="{{ route('admin.commentaspiration.index', $item->id) }}"
+                                                href="{{ route('admin.commentsuggestion.index', $item->id) }}"
                                                 role="button"><i class="fa fa-eye"></i></a>
                                             <button type="submit" class="btn btn-sm btn-danger"
                                                 onclick="return confirm('apakah anda mau menghapus data ini ?')"><i

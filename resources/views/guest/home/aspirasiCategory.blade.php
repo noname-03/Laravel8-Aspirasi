@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="category-title">Kategori : {{ $category->name }}</h3>
+                    <h3 class="category-title">Kategori : {{ $titleSubCategories->name }}</h3>
 
                     @foreach ($aspirations as $item)
                         <div class="d-md-flex post-entry-2 small-img border-bottom">
@@ -13,7 +13,7 @@
                                 <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
                             </a> --}}
                             <div>
-                                <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                <div class="post-meta"><span class="date">{{ $item->TitleSubCategory->name }}</span> <span
                                         class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span></div>
                                 <h3><a href="{{ route('guest.showAspirasi', $item->id) }}">{{ $item->title }}</a></h3>
                                 <p>{{ $item->description }}</p>

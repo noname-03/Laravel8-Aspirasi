@@ -67,40 +67,40 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    @if (Auth::user()->role == 'admin')
-        <li class="nav-item active">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Data</span>
-            </a>
-            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Data:</h6>
-                    {{-- <a class="collapse-item" href="{{ route('admin.class_education.index') }}">Data Kelas</a> --}}
-                    {{-- <a class="collapse-item" href="{{ route('admin.attendances.index') }}">Data Absensi</a> --}}
-                    <a class="collapse-item" href="{{ route('admin.category.index') }}">Data Kategori</a>
-                    <a class="collapse-item" href="{{ route('admin.dprd.index') }}">Data Dprd</a>
-                    <a class="collapse-item" href="{{ route('admin.aspiration.index') }}">Data Aspirasi</a>
-                    {{-- <a class="collapse-item" href="{{ route('admin.cabang.index') }}">Data Cabang</a>
+    {{-- @if (Auth::user()->role == 'admin') --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Data</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data:</h6>
+                {{-- <a class="collapse-item" href="{{ route('admin.class_education.index') }}">Data Kelas</a> --}}
+                {{-- <a class="collapse-item" href="{{ route('admin.attendances.index') }}">Data Absensi</a> --}}
+                <a class="collapse-item" href="{{ route('admin.category.index') }}">Data Kategori</a>
+                <a class="collapse-item" href="{{ route('admin.dprd.index') }}">Data Dprd</a>
+                <a class="collapse-item" href="{{ route('admin.aspiration.index') }}">Data Aspirasi</a>
+                <a class="collapse-item" href="{{ route('admin.suggestion.index') }}">Data Saran</a>
+                {{-- <a class="collapse-item" href="{{ route('admin.cabang.index') }}">Data Cabang</a>
                     <a class="collapse-item" href="{{ route('admin.user.index') }}">Data User</a>
                     <a class="collapse-item" href="{{ route('transaction.index') }}">Data Transaksi</a> --}}
-                    {{-- <a class="collapse-item" href="{{ route('admin.user.index') }}">Data Yang Sudah Disetujui</a> --}}
-                </div>
-                <div class="bg-white py-2 collapse-inner rounded">
-                    {{-- <h6 class="collapse-header">Laporan:</h6>
+                {{-- <a class="collapse-item" href="{{ route('admin.user.index') }}">Data Yang Sudah Disetujui</a> --}}
+            </div>
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{-- <h6 class="collapse-header">Laporan:</h6>
                     <a class="collapse-item" href="{{ route('report.category') }}">Laporan Kategori</a>
                     <a class="collapse-item" href="{{ route('report.cabang') }}">Laporan Cabang</a>
                     <a class="collapse-item" href="{{ route('report.user') }}">Laporan User</a>
                     <a class="collapse-item" href="{{ route('report.productAdmin') }}">Laporan Product</a>
                     <a class="collapse-item" href="{{ route('report.transaction') }}">Laporan Transaksi</a> --}}
-                    {{-- <a class="collapse-item" href="{{ route('transaction.index') }}">Data Transaksi</a> --}}
-                    {{-- <a class="collapse-item" href="{{ route('admin.user.index') }}">Data Yang Sudah Disetujui</a> --}}
-                </div>
+                {{-- <a class="collapse-item" href="{{ route('transaction.index') }}">Data Transaksi</a> --}}
+                {{-- <a class="collapse-item" href="{{ route('admin.user.index') }}">Data Yang Sudah Disetujui</a> --}}
             </div>
-        </li>
-    @else
+        </div>
+    </li>
+    {{-- @else
         <li class="nav-item active">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
@@ -123,7 +123,7 @@
                 </div>
             </div>
         </li>
-    @endif
+    @endif --}}
 
     <!-- Nav Item - Charts -->
     {{-- <li class="nav-item">

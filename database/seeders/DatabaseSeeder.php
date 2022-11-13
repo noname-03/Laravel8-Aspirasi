@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserTableSeeder::class,
             CategoryTableSeeder::class,
+            SubCategorySeeder::class,
+            TitleSubCategorySeeder::class,
             DprdSeeder::class,
             AspirationTableSeeder::class,
             CommentAspirationTableSeeder::class,

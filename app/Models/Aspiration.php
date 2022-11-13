@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
+use App\Models\TitleSubCategory;
 use App\Models\Dprd;
 use App\Models\CommentAspirations;
 
@@ -14,9 +14,9 @@ class Aspiration extends Model
 
     protected $guarded = [];
 
-    public function Category()
+    public function TitleSubCategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(TitleSubCategory::class);
     }
 
     public function dprd()

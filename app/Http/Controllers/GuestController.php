@@ -6,6 +6,7 @@ use App\Models\Aspiration;
 use App\Models\Category;
 use App\Models\Dprd;
 use App\Models\Suggestion;
+use App\Models\TitleSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -42,13 +43,21 @@ class GuestController extends Controller
         return redirect()->route('guest.showAspirasi', $id);
     }
 
+    public function aspirasiCategoryStore(Request $request)
+    {
+        // dd($request->title_sub_category_id);
+        $id = $request->title_sub_category_id;
+        return redirect()->route('guest.aspirasiCategory', $id);
+    }
+
     public function aspirasiCategory($id)
     {
         $dprds = Dprd::all();
-        $category = Category::findOrFail($id);
+        $titleSubCategories = TitleSubCategory::findOrFail($id);
         $categories = Category::all();
-        $aspirations = $category->Aspirations()->latest('created_at')->paginate(5);
-        return view('guest.home.aspirasiCategory', ['aspirations' => $aspirations, 'category' => $category, 'dprds' => $dprds, 'categories' => $categories]);
+        $aspirations = $titleSubCategories->Aspirations()->latest('created_at')->paginate(5);
+        // dd($aspirations);
+        return view('guest.home.aspirasiCategory', ['aspirations' => $aspirations, 'titleSubCategories' => $titleSubCategories, 'dprds' => $dprds, 'categories' => $categories]);
     }
 
     public function saran()

@@ -11,9 +11,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Aspirasi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Komen Saran</h6>
                 <p></p>
-                <a href="{{ route('admin.aspiration.create') }}" class="btn btn-success">Tambah Data</a>
+                <a href="{{ route('admin.commentsuggestion.create', $suggestion->id) }}" class="btn btn-success">Tambah
+                    Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -21,44 +22,40 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Dprd</th>
-                                <th>Kategori</th>
                                 <th>Nama</th>
-                                <th>Uraian</th>
-                                <th>Nama</th>
+                                <th>Judul</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Dprd</th>
-                                <th>Kategori</th>
                                 <th>Nama</th>
-                                <th>Uraian</th>
-                                <th>Nama</th>
+                                <th>Judul</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($aspirations as $item)
+                            @foreach ($CommentSuggestions as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->dprd->name }}</td>
-                                    <td>{{ $item->TitleSubCategory->name }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->title }}</td>
                                     <td>{{ $item->description }}</td>
-                                    <td>{{ $item->name }}</td>
                                     <td>
-                                        <form action="{{ route('admin.aspiration.destroy', $item->id) }}" method="post">
+                                        <form
+                                            action="{{ route('admin.commentsuggestion.destroy', [$suggestion->id, $item->id]) }}"
+                                            method="post">
                                             @csrf @method('DELETE')
-                                            <a class="btn btn-sm btn-primary"
-                                                href="{{ route('admin.aspiration.edit', $item->id) }}" role="button"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a class="btn btn-sm btn-success"
-                                                href="{{ route('admin.commentaspiration.index', $item->id) }}"
+                                            <a class="btn btn-primary"
+                                                href="{{ route('admin.commentsuggestion.edit', [$suggestion->id, $item->id]) }}"
+                                                role="button"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-success"
+                                                href="{{ route('admin.commentsuggestion.show', [$suggestion->id, $item->id]) }}"
                                                 role="button"><i class="fa fa-eye"></i></a>
-                                            <button type="submit" class="btn btn-sm btn-danger"
+                                            <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('apakah anda mau menghapus data ini ?')"><i
                                                     class="fa fa-trash"></i></button>
                                         </form>

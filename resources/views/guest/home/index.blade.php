@@ -128,8 +128,8 @@
 
                             @foreach ($aspirations as $item)
                                 <div class="post-entry-1 border-bottom">
-                                    <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
-                                            class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
+                                    <div class="post-meta"><span class="date">{{ $item->TitleSubCategory->name }}</span>
+                                        <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                                     </div>
                                     <h2 class="mb-2"><a
                                             href="{{ route('guest.showAspirasi', $item->id) }}">{{ $item->title }}</a>
@@ -187,15 +187,50 @@
 
                             <!-- new custom -->
                             <div class="aside-block">
-                                <h3 class="aside-title">Categories</h3>
-                                <ul class="aside-links list-unstyled">
+                                <h3 class="aside-title">Kategori</h3>
+                                <form action="{{ route('guest.aspirasiCategory.store') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        {{-- <label>Kategori <span class="required">*</span></label> --}}
+                                        <select name="title_sub_category_id" class="form-control"
+                                            id="exampleFormControlSelect1" data-show-subtext="true" data-live-search="true"
+                                            required>
+                                            <option>Choose...</option>
+                                            @foreach ($categories as $item)
+                                                <option value="{{ $item->id }}" disabled>{{ $item->name }}</option>
+                                                @foreach ($item->subCategories as $item)
+                                                    <option value="{{ $item->id }}" disabled>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $item->name }}</option>
+                                                    @foreach ($item->titleSubCategories as $item)
+                                                        <option value="{{ $item->id }}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $item->name }}</option>
+                                                    @endforeach
+                                                @endforeach
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-success">Pencarian</button>
+                                    </div>
+                                </form>
+                                {{-- <ul class="aside-links list-unstyled">
                                     @foreach ($categories as $item)
-                                        <li><a href="{{ route('guest.aspirasiCategory', $item->id) }}"><i
-                                                    class="bi bi-chevron-right"></i>
+                                        <li><a><i class="bi bi-chevron-right"></i>
                                                 {{ $item->name }}</a>
                                         </li>
+                                        <ul>
+                                            @foreach ($item->subCategories as $item)
+                                                <li>{{ $item->name }}</li>
+                                                <ul>
+                                                    @foreach ($item->titleSubCategories as $item)
+                                                        <li><a href="{{ route('guest.aspirasiCategory', $item->id) }}">
+                                                                {{ $item->name }}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                            @endforeach
+                                        </ul>
                                     @endforeach
-                                </ul>
+                                </ul> --}}
                             </div><!-- End Categories -->
                             <!-- end new custom -->
 

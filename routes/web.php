@@ -8,7 +8,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AspirationsController;
 use App\Http\Controllers\CommentAspiration;
 use App\Http\Controllers\GuestController;
-
+use App\Http\Controllers\Admin\SuggestionController;
+use App\Http\Controllers\Admin\CommentSuggestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::prefix('/sarapan')->name('guest.')->group(function () {
     Route::get('/aspirasi/{id}', [GuestController::class, 'showAspirasi'])->name('showAspirasi');
     Route::post('/aspirasi', [GuestController::class, 'storeAspirasi'])->name('aspirasi.store');
     Route::post('/aspirasi/{id}/comment', [GuestController::class, 'storeCommentAspiration'])->name('storeCommentAspiration');
+    Route::post('/category/aspirasi', [GuestController::class, 'aspirasiCategoryStore'])->name('aspirasiCategory.store');
     Route::get('/category/{id}/aspirasi', [GuestController::class, 'aspirasiCategory'])->name('aspirasiCategory');
     Route::get('/saran', [GuestController::class, 'saran'])->name('saran');
     Route::get('/saran/{id}', [GuestController::class, 'showSaran'])->name('showSaran');
@@ -61,6 +63,16 @@ Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->gro
     Route::get('/aspiration/{aspiration_id}/comment/{comment_id}/edit', [CommentAspiration::class, 'edit'])->name('commentaspiration.edit');
     Route::put('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'update'])->name('commentaspiration.update');
     Route::delete('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'destroy'])->name('commentaspiration.destroy');
+
+    Route::resource('suggestion', SuggestionController::class);
+    // comment suggestion Resource
+    Route::get('/suggestion/{suggestion_id}/comment', [CommentSuggestionController::class, 'index'])->name('commentsuggestion.index');
+    Route::get('/suggestion/{suggestion_id}/comment/create', [CommentSuggestionController::class, 'create'])->name('commentsuggestion.create');
+    Route::post('/suggestion/{suggestion_id}/comment', [CommentSuggestionController::class, 'store'])->name('commentsuggestion.store');
+    Route::get('/suggestion/{suggestion_id}/comment/{comment_id}', [CommentSuggestionController::class, 'show'])->name('commentsuggestion.show');
+    Route::get('/suggestion/{suggestion_id}/comment/{comment_id}/edit', [CommentSuggestionController::class, 'edit'])->name('commentsuggestion.edit');
+    Route::put('/suggestion/{suggestion_id}/comment/{comment_id}', [CommentSuggestionController::class, 'update'])->name('commentsuggestion.update');
+    Route::delete('/suggestion/{suggestion_id}/comment/{comment_id}', [CommentSuggestionController::class, 'destroy'])->name('commentsuggestion.destroy');
 });
 
 

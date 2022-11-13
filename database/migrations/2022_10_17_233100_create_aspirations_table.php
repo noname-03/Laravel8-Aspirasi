@@ -17,8 +17,8 @@ class CreateAspirationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('dprd_id');
             $table->foreign('dprd_id')->references('id')->on('dprds')->onDelete('cascade');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('title_sub_category_id');
+            $table->foreign('title_sub_category_id')->references('id')->on('title_sub_categories')->onDelete('cascade');
             $table->string('name');
             $table->string('email');
             $table->string('title');
