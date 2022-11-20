@@ -10,6 +10,8 @@ use App\Http\Controllers\CommentAspiration;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\Admin\SuggestionController;
 use App\Http\Controllers\Admin\CommentSuggestionController;
+use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\TitileSubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +75,24 @@ Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->gro
     Route::get('/suggestion/{suggestion_id}/comment/{comment_id}/edit', [CommentSuggestionController::class, 'edit'])->name('commentsuggestion.edit');
     Route::put('/suggestion/{suggestion_id}/comment/{comment_id}', [CommentSuggestionController::class, 'update'])->name('commentsuggestion.update');
     Route::delete('/suggestion/{suggestion_id}/comment/{comment_id}', [CommentSuggestionController::class, 'destroy'])->name('commentsuggestion.destroy');
+
+    //sub category
+    Route::get('/category/{category_id}/subcategory', [SubCategoryController::class, 'index'])->name('subcategory.index');
+    Route::get('/category/{category_id}/subcategory/create', [SubCategoryController::class, 'create'])->name('subcategory.create');
+    Route::post('/category/{category_id}/subcategory', [SubCategoryController::class, 'store'])->name('subcategory.store');
+    Route::get('/category/{category_id}/subcategory/{subcategory_id}', [SubCategoryController::class, 'show'])->name('subcategory.show');
+    Route::get('/category/{category_id}/subcategory/{subcategory_id}/edit', [SubCategoryController::class, 'edit'])->name('subcategory.edit');
+    Route::put('/category/{category_id}/subcategory/{subcategory_id}', [SubCategoryController::class, 'update'])->name('subcategory.update');
+    Route::delete('/category/{category_id}/subcategory/{subcategory_id}', [SubCategoryController::class, 'destroy'])->name('subcategory.destroy');
+
+    //title sub category
+    Route::get('/category/{category_id}/subcategory/{subcategory_id}', [TitileSubCategoryController::class, 'index'])->name('titlesubcategory.index');
+    Route::get('/category/{category_id}/subcategory/{subcategory_id}/create', [TitileSubCategoryController::class, 'create'])->name('titlesubcategory.create');
+    Route::post('/category/{category_id}/subcategory{subcategory_id}', [TitileSubCategoryController::class, 'store'])->name('titlesubcategory.store');
+    Route::get('/category/{category_id}/subcategory/{subcategory_id}/titlesubcategory/{titlesubcategory}', [TitileSubCategoryController::class, 'show'])->name('titlesubcategory.show');
+    Route::get('/category/{category_id}/subcategory/{subcategory_id}/titlesubcategory/{titlesubcategory}/edit', [TitileSubCategoryController::class, 'edit'])->name('titlesubcategory.edit');
+    Route::put('/category/{category_id}/subcategory/{subcategory_id}/titlesubcategory/{titlesubcategory}', [TitileSubCategoryController::class, 'update'])->name('titlesubcategory.update');
+    Route::delete('/category/{category_id}/subcategory/{subcategory_id}/titlesubcategory/{titlesubcategory}', [TitileSubCategoryController::class, 'destroy'])->name('titlesubcategory.destroy');
 });
 
 

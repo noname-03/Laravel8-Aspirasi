@@ -31,8 +31,9 @@ class GuestController extends Controller
     public function showAspirasi($id)
     {
         $aspiration = Aspiration::findOrFail($id);
-        // dd($aspiration);
-        return view('guest.home.showAspirasi', compact('aspiration'));
+        $dprds = Dprd::all();
+        $categories = Category::all();
+        return view('guest.home.showAspirasi', compact('aspiration', 'dprds', 'categories'));
     }
 
     public function storeCommentAspiration(Request $request, $id)

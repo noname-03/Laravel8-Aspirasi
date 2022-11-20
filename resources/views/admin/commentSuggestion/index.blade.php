@@ -52,9 +52,9 @@
                                             <a class="btn btn-primary"
                                                 href="{{ route('admin.commentsuggestion.edit', [$suggestion->id, $item->id]) }}"
                                                 role="button"><i class="fa fa-edit"></i></a>
-                                            <a class="btn btn-success"
+                                            {{-- <a class="btn btn-success"
                                                 href="{{ route('admin.commentsuggestion.show', [$suggestion->id, $item->id]) }}"
-                                                role="button"><i class="fa fa-eye"></i></a>
+                                                role="button"><i class="fa fa-eye"></i></a> --}}
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('apakah anda mau menghapus data ini ?')"><i
                                                     class="fa fa-trash"></i></button>

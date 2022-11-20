@@ -11,9 +11,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Komen Aspirasi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Title Sub Kategori</h6>
                 <p></p>
-                <a href="{{ route('admin.commentaspiration.create', $aspiration->id) }}" class="btn btn-success">Tambah
+                <a href="{{ route('admin.titlesubcategory.create', [$category->id, $subCategories->id]) }}"
+                    class="btn btn-success">Tambah
                     Data</a>
             </div>
             <div class="card-body">
@@ -22,38 +23,38 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Judul</th>
-                                <th>Deskripsi</th>
+                                <th>Nama Kategori</th>
+                                <th>Nama Sub Kategori</th>
+                                <th>Nama Title Sub Kategori</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Judul</th>
-                                <th>Deskripsi</th>
+                                <th>Nama Kategori</th>
+                                <th>Nama Sub Kategori</th>
+                                <th>Nama Title Sub Kategori</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($CommentAspirations as $item)
+                            @foreach ($titleSubCategory as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $subCategories->name }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->title }}</td>
-                                    <td>{{ $item->description }}</td>
                                     <td>
                                         <form
-                                            action="{{ route('admin.commentaspiration.destroy', [$aspiration->id, $item->id]) }}"
+                                            action="{{ route('admin.titlesubcategory.destroy', [$category->id, $subCategories->id, $item->id]) }}"
                                             method="post">
                                             @csrf @method('DELETE')
                                             <a class="btn btn-primary"
-                                                href="{{ route('admin.commentaspiration.edit', [$aspiration->id, $item->id]) }}"
+                                                href="{{ route('admin.titlesubcategory.edit', [$category->id, $subCategories->id, $item->id]) }}"
                                                 role="button"><i class="fa fa-edit"></i></a>
                                             {{-- <a class="btn btn-success"
-                                                href="{{ route('admin.commentaspiration.show', [$aspiration->id, $item->id]) }}"
+                                                href="{{ route('admin.titlesubcategory.show', [$category->id, $item->id]) }}"
                                                 role="button"><i class="fa fa-eye"></i></a> --}}
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('apakah anda mau menghapus data ini ?')"><i

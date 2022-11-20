@@ -7,18 +7,19 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Edit Data Kategori</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Edit Data Title Sub Kategori</h6>
                 <p></p>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.category.update', ['category' => $category->id]) }}" method="POST"
-                    id="demo-form2" user-parsley-validate class="form-horizontal form-label-left">
-                    @csrf @method('PATCH')
+                <form
+                    action="{{ route('admin.titlesubcategory.update', [$category->id, $subCategories->id, $titleSubCategories->id]) }}"
+                    method="POST" id="demo-form2" user-parsley-validate class="form-horizontal form-label-left">
+                    @csrf @method('PUT')
                     <div class="item form-group">
                         <div class="form-group col-md-6">
                             <label for="name">Name <span class="required">*</span></label>
                             <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Masukan Nama" value="{{ $category->name }}" required>
+                                placeholder="Masukan Nama" value="{{ $titleSubCategories->name }}" required>
                         </div>
                     </div>
                     <div class="item form-group">

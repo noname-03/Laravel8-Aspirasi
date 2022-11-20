@@ -42,7 +42,9 @@
                                             @csrf @method('DELETE')
                                             <a class="btn btn-primary" href="{{ route('admin.category.edit', $item->id) }}"
                                                 role="button"><i class="fa fa-edit"></i></a>
-                                            {{-- <a class="btn btn-success" href="{{ route('product.show', ['product'=>$data->id]) }}" role="button"><i class="fa fa-eye"></i></a> --}}
+                                            <a class="btn btn-success"
+                                                href="{{ route('admin.subcategory.index', $item->id) }}" role="button"><i
+                                                    class="fa fa-plus"></i></a>
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('apakah anda mau menghapus data ini ?')"><i
                                                     class="fa fa-trash"></i></button>
