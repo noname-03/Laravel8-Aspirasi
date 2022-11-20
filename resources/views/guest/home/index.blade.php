@@ -7,20 +7,19 @@
                 <div class="col-12">
                     <div class="swiper sliderFeaturedPosts">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="single-post.html" class="img-bg d-flex align-items-end"
-                                    style="background-image: url('{{ asset('/guest') }}/assets/img/post-slide-1.jpg');">
-                                    <div class="img-bg-inner">
-                                        <h2>The Best Homemade Masks for Face (keep the Pimples Away)</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque
-                                            est mollitia! Beatae minima assumenda repellat harum vero, officiis
-                                            ipsam magnam obcaecati cumque maxime inventore repudiandae quidem
-                                            necessitatibus rem atque.</p>
+                            @foreach ($slides as $item)
+                                <div class="swiper-slide">
+                                    <div class="img-bg d-flex align-items-end"
+                                        style="background-image: url('{{ asset('storage/lampiran/aspirasi/slide/' . $item->photo) }}');">
+                                        <div class="img-bg-inner">
+                                            <h2>{{ $item->title }}</h2>
+                                            <p>{{ $item->description }}</p>
+                                        </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            @endforeach
 
-                            <div class="swiper-slide">
+                            {{-- <div class="swiper-slide">
                                 <a href="single-post.html" class="img-bg d-flex align-items-end"
                                     style="background-image: url('{{ asset('/guest') }}/assets/img/post-slide-2.jpg');">
                                     <div class="img-bg-inner">
@@ -78,7 +77,7 @@
                                         <p>description.</p>
                                     </div>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="custom-swiper-button-next">
                             <span class="bi-chevron-right"></span>

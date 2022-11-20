@@ -16,7 +16,7 @@
                         <div class="info-item">
                             <i class="bi bi-geo-alt"></i>
                             <h3>Address</h3>
-                            <address>A108 Adam Street, NY 535022, USA</address>
+                            <address>{{ $contact[0]->address }}</address>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -24,7 +24,7 @@
                         <div class="info-item info-item-borders">
                             <i class="bi bi-phone"></i>
                             <h3>Phone Number</h3>
-                            <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                            <p><a href="tel:{{ $contact[0]->no_hp }}">{{ $contact[0]->no_hp }}</a></p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -32,12 +32,12 @@
                         <div class="info-item">
                             <i class="bi bi-envelope"></i>
                             <h3>Email</h3>
-                            <p><a href="mailto:info@example.com">info@example.com</a></p>
+                            <p><a href="mailto:{{ $contact[0]->email }}">{{ $contact[0]->email }}</a></p>
                         </div>
                     </div><!-- End Info Item -->
 
                 </div>
-
+                {{--
                 <div class="form mt-5">
                     <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                         <div class="row">
@@ -64,7 +64,7 @@
                         </div>
                         <div class="text-center"><button type="submit">Send Message</button></div>
                     </form>
-                </div><!-- End Contact Form -->
+                </div><!-- End Contact Form --> --}}
 
             </div>
         </section>

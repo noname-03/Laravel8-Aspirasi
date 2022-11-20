@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
             CommentAspirationTableSeeder::class,
             SuggestionTableSeeder::class,
             CommentSuggestionSeeder::class,
+            SlideSeeder::class,
+            ContactSeeder::class,
+            AboutSeeder::class,
         ]);
     }
 }

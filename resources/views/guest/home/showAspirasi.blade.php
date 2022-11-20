@@ -94,8 +94,9 @@
 
                     <!-- ======= Comments ======= -->
                     <div class="comments">
-                        <h5 class="comment-title py-4">{{ $aspiration->CommentAspirations->count() }} Comments</h5>
-                        @foreach ($aspiration->CommentAspirations as $item)
+                        <h5 class="comment-title py-4">{{ $aspiration->CommentAspirations->where('status', 1)->count() }}
+                            Comments</h5>
+                        @foreach ($aspiration->CommentAspirations->where('status', 1) as $item)
                             <div class="comment d-flex mb-4">
                                 <div class="flex-grow-1 ms-2 ms-sm-3">
                                     <div class="comment-meta d-flex align-items-baseline">

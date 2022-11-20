@@ -10,8 +10,10 @@ use App\Http\Controllers\CommentAspiration;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\Admin\SuggestionController;
 use App\Http\Controllers\Admin\CommentSuggestionController;
+use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TitileSubCategoryController;
+use App\Http\Controllers\Admin\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +59,9 @@ Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->gro
     Route::resource('category', CategoryController::class);
     Route::resource('dprd', DprdController::class);
     Route::resource('aspiration', AspirationsController::class);
+    Route::resource('suggestion', SuggestionController::class);
+    Route::resource('slide', SlideController::class);
+    Route::resource('about', AboutController::class);
     // comment aspiration Resource
     Route::get('/aspiration/{aspiration_id}/comment', [CommentAspiration::class, 'index'])->name('commentaspiration.index');
     Route::get('/aspiration/{aspiration_id}/comment/create', [CommentAspiration::class, 'create'])->name('commentaspiration.create');
@@ -66,7 +71,6 @@ Route::prefix('/admin')->name('admin.')->middleware(['role:admin', 'auth'])->gro
     Route::put('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'update'])->name('commentaspiration.update');
     Route::delete('/aspiration/{aspiration_id}/comment/{comment_id}', [CommentAspiration::class, 'destroy'])->name('commentaspiration.destroy');
 
-    Route::resource('suggestion', SuggestionController::class);
     // comment suggestion Resource
     Route::get('/suggestion/{suggestion_id}/comment', [CommentSuggestionController::class, 'index'])->name('commentsuggestion.index');
     Route::get('/suggestion/{suggestion_id}/comment/create', [CommentSuggestionController::class, 'create'])->name('commentsuggestion.create');

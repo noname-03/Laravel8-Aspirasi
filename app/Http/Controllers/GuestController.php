@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Aspiration;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Dprd;
+use App\Models\Slide;
 use App\Models\Suggestion;
 use App\Models\TitleSubCategory;
 use Illuminate\Http\Request;
@@ -15,9 +18,10 @@ class GuestController extends Controller
     public function index()
     {
         $aspirations = Aspiration::latest('created_at')->limit(5)->get();
-        $suggestions = Suggestion::latest('created_at')->limit(5)->get();
+        $suggestions = Suggestion::latest('created_at')->where('status', 1)->limit(5)->get();
         $categories = Category::all();
-        return view('guest.home.index', compact('aspirations', 'categories', 'suggestions'));
+        $slides = Slide::all();
+        return view('guest.home.index', compact('aspirations', 'categories', 'suggestions', 'slides'));
     }
 
     public function aspirasi()
@@ -46,7 +50,6 @@ class GuestController extends Controller
 
     public function aspirasiCategoryStore(Request $request)
     {
-        // dd($request->title_sub_category_id);
         $id = $request->title_sub_category_id;
         return redirect()->route('guest.aspirasiCategory', $id);
     }
@@ -57,14 +60,12 @@ class GuestController extends Controller
         $titleSubCategories = TitleSubCategory::findOrFail($id);
         $categories = Category::all();
         $aspirations = $titleSubCategories->Aspirations()->latest('created_at')->paginate(5);
-        // dd($aspirations);
         return view('guest.home.aspirasiCategory', ['aspirations' => $aspirations, 'titleSubCategories' => $titleSubCategories, 'dprds' => $dprds, 'categories' => $categories]);
     }
 
     public function saran()
     {
         $suggestions = Suggestion::latest('created_at')->paginate(5);
-        // dd($suggestions);
         return view('guest.home.suggestion', compact('suggestions'));
     }
 
@@ -101,11 +102,14 @@ class GuestController extends Controller
 
     public function tentang()
     {
-        return view('guest.home.about');
+        $about = About::all();
+        return view('guest.home.about', compact('about'));
     }
 
     public function kontak()
     {
-        return view('guest.home.contact');
+
+        $contact = Contact::all();
+        return view('guest.home.contact', compact('contact'));
     }
 }
