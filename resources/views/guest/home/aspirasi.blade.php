@@ -30,8 +30,11 @@
                                         @elseif ($item->status == 3)
                                             <span style="color: blue">Terealisasi</span>
                                             {{-- style="color: brown" --}}
-                                        @else
+                                        @elseif ($item->status == 4)
                                             <span style="color: green">Tidak Terealisasi</span>
+                                            {{-- style="color: brown" --}}
+                                        @else
+                                            <span style="color: rgb(98, 0, 255)">Menunggu</span>
                                             {{-- style="color: red" --}}
                                         @endif
                                     </div>

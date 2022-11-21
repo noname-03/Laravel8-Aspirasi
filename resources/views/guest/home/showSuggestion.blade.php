@@ -32,8 +32,9 @@
 
                     <!-- ======= Comments ======= -->
                     <div class="comments">
-                        <h5 class="comment-title py-4">{{ $suggestions->commentSuggestions->count() }} Comments</h5>
-                        @foreach ($suggestions->commentSuggestions as $item)
+                        <h5 class="comment-title py-4">{{ $suggestions->commentSuggestions->where('status', 1)->count() }}
+                            Comments</h5>
+                        @foreach ($suggestions->commentSuggestions->where('status', 1) as $item)
                             <div class="comment d-flex mb-4">
                                 <div class="flex-grow-1 ms-2 ms-sm-3">
                                     <div class="comment-meta d-flex align-items-baseline">

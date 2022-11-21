@@ -57,7 +57,7 @@
                                                     class="fa fa-edit"></i></a>
                                             <a class="btn btn-sm btn-success"
                                                 href="{{ route('admin.commentaspiration.index', $item->id) }}"
-                                                role="button"><i class="fa fa-eye"></i></a>
+                                                role="button"><i class="fa fa-plus"></i></a>
                                             <button type="submit" class="btn btn-sm btn-danger"
                                                 onclick="return confirm('apakah anda mau menghapus data ini ?')"><i
                                                     class="fa fa-trash"></i></button>

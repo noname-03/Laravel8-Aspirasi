@@ -65,7 +65,7 @@ class GuestController extends Controller
 
     public function saran()
     {
-        $suggestions = Suggestion::latest('created_at')->paginate(5);
+        $suggestions = Suggestion::latest('created_at')->where('status', 1)->paginate(5);
         return view('guest.home.suggestion', compact('suggestions'));
     }
 
